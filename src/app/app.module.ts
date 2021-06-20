@@ -9,6 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AngularMaterialModule } from './material/material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {httpInterceptorProviders} from './utility/http-interceptors/interceptors-provider';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
 export class  RegistrationRequest {
-  lastname: string;
+  lastName: string;
   password: string;
-  staffid: string;
-    firstname: string;
-  email: string;
-  mobile: string;
- title: string;
+  country: string;
+    firstName: string;
+  emailID: string;
+  city: string;
+ id: string;
 
  
  

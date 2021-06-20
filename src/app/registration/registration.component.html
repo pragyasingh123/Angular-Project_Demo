@@ -39,13 +39,13 @@
   <h2 class="text-center">Create a new Account</h2>
 <div class="container">
     <div class="wrapper-container">
-        <form  [formGroup]="registrationForm"  (ngSubmit)="onRegistrationSubmit()">
+        <form  [formGroup]="registrationForm"  (ngSubmit)="onRegistrationSubmit()" *ngIf="!isSuccessfullySubmitted">
           <div class="container">
             <div class="row top-container">
                 <div class="register-card">
     
                     <div class="register-fields">
-                        <label>Title<span class="star">*</span></label>
+                        <label>Country<span class="star">*</span></label>
                         <mat-form-field class="example-full-width" floatLabel="never" >
                             <input matInput placeholder="" value="" formControlName="userTitle" required>
                         </mat-form-field>
@@ -133,7 +133,7 @@
                     </div>
     
                     <div class="register-fields">
-                        <label>Post Code<span class="star">*</span></label>
+                        <label>City<span class="star">*</span></label>
                         <mat-form-field class="example-full-width" floatLabel="never" >
                             <input matInput placeholder="" value="" formControlName="postcode"  required    >
                         </mat-form-field>
@@ -161,6 +161,8 @@
             </div>
         </form>
     
-       
+       <div *ngIf="isSuccessfullySubmitted">
+           <h1>You have successfully registered . Please login now</h1>
+           <div>
     </div>
 </div>

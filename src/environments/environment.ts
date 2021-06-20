@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://192.168.10.143:89/',
+  apiUrl: 'http://localhost:60084/',
   //qttUrl: 'http://localhost:4200/',
   // apiUrl:'http://localhost:61602/'
 };

@@ -12,7 +12,7 @@ export class HttpHeaderInterceptor implements HttpInterceptor {
 
         req = req.clone({ headers: req.headers.set('Content-Type', 'application/json') });
      // req = req.clone({ params: req.params.set("", "")});
-
+        
         return next.handle(req);
   }
 }

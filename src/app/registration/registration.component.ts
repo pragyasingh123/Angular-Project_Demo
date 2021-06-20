@@ -4,6 +4,7 @@ import { RegistrationRequest } from 'src/app/models/registration-request';
 import { PasswordStrengthValidator } from "src/app/utility/custom-validation/password-strength.validation";
 import { RegistationResponse } from 'src/app/models/registation-response';
 import { ResponseData } from 'src/app/models/common/response';
+import {CustomerServiceService} from 'src/app/Services/customer-service.service';
 
 @Component({
   selector: 'app-registration',
@@ -15,9 +16,9 @@ export class RegistrationComponent implements OnInit {
   customerRegisterRequest: RegistrationRequest;
   customerRegisterResponse: RegistationResponse;
   isSubmitted:boolean = false;
-
+  isSuccessfullySubmitted =false;
   responseData: ResponseData;
-  constructor(private formbuilder: FormBuilder) {
+  constructor(private formbuilder: FormBuilder, public customerService:CustomerServiceService) {
     this.IsShow=false;
    }
 
@@ -46,19 +47,25 @@ export class RegistrationComponent implements OnInit {
     var data =this.registrationForm.value;
     this.customerRegisterRequest = new RegistrationRequest();
     var registerFormData = this.registrationForm.value;
-    this.customerRegisterRequest.email = registerFormData.email;
-    this.customerRegisterRequest.firstname = registerFormData.firstName;
-    this.customerRegisterRequest.lastname = registerFormData.surname;
-    this.customerRegisterRequest.title = "Miss";
+    this.customerRegisterRequest.emailID = registerFormData.email;
+    this.customerRegisterRequest.firstName = registerFormData.firstName;
+    this.customerRegisterRequest.lastName = registerFormData.surname;
     this.customerRegisterRequest.password = registerFormData.password;
-   
+    this.customerRegisterRequest.country=registerFormData.userTitle;
+    this.customerRegisterRequest.city=registerFormData.postcode;
+   this.registerUser(this.customerRegisterRequest)
   }
   }
  
 
-  registerUser(){
-    
-
+  registerUser(CustomerRegisterRequest:any){
+    this.customerService.registerCustomer(this.customerRegisterRequest).subscribe(res=>{
+      if(res!=null){
+        this.responseData= res as ResponseData;
+        this.isSuccessfullySubmitted=true;
+      }
+    })
+ 
   }
 
 
