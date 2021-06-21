@@ -10,13 +10,19 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AngularMaterialModule } from './material/material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {httpInterceptorProviders} from './utility/http-interceptors/interceptors-provider';
+import { UsersComponent } from './users/users.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PowerOf2Pipe } from './Pipes/power-of2.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     RegistrationComponent,
-    NavigationComponent
+    NavigationComponent,
+    UsersComponent,
+    PageNotFoundComponent,
+    PowerOf2Pipe
   ],
   imports: [
     BrowserModule,
