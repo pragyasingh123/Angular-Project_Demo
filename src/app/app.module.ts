@@ -13,6 +13,7 @@ import {httpInterceptorProviders} from './utility/http-interceptors/interceptors
 import { UsersComponent } from './users/users.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PowerOf2Pipe } from './Pipes/power-of2.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PowerOf2Pipe } from './Pipes/power-of2.pipe';
     NavigationComponent,
     UsersComponent,
     PageNotFoundComponent,
-    PowerOf2Pipe
+    PowerOf2Pipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

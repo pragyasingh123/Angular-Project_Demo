@@ -15,4 +15,8 @@ export class CustomerServiceService {
   registerCustomer(customerRegisterRequest:any){
     return this.httpclientService.HttpPostRequest(customerRegisterRequest,this.apiPath.registation);
   }
+
+  loginCustomer(customerRegisterRequest:any){
+    return this.httpclientService.HttpPostRequest(customerRegisterRequest,this.apiPath.login);
+  }
 }

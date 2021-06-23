@@ -6,6 +6,6 @@ import { Injectable } from '@angular/core';
 export class ApiReferenceService {
 
   registation:string="api/user/registration";
-  login:string="";
+  login:string="api/user/login";
   constructor() { }
 }
