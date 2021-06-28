@@ -1,7 +1,7 @@
 export class  ResponseData{
     // IsSuccess: boolean;
      ResponseMessage: string;
-     responseCode: string;
+     ResponseCode: string;
      data: any;
      Error:string;
      sessionCode:string;

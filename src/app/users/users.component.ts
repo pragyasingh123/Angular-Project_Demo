@@ -9,6 +9,7 @@ export class UsersComponent implements OnInit {
 
   userName:string;
   
+  CheckTwoWayBinding:string;
   calculatePower:any;
   constructor() { }
 

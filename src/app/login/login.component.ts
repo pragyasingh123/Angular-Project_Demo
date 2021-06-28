@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { LoginRequest } from '../models/login-request';
 import { ResponseData } from '../models/common/response';
 import { CustomerServiceService } from '../Services/customer-service.service';
+import {Router, RouterLink} from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   responseData:ResponseData;
  isSubmission:boolean=false;
  
-  constructor(public customerService: CustomerServiceService) { }
+ 
+  constructor(public customerService: CustomerServiceService, public route: Router) { }
 
    
 
@@ -47,16 +49,26 @@ export class LoginComponent implements OnInit {
 
       if(res!=null){
         this.responseData= res as ResponseData;
-        if(this.responseData.responseCode=="200"){
-
-
+       
+        if(this.responseData.ResponseCode=="200"){
+          this.SetLocalStorage();
+            this.route.navigate(['./users'])
+           
         }
       }
      })
+   
+     
+
 
    }
 
-  
+   SetLocalStorage(){
+    localStorage.setItem('IsLogin','true');
+    localStorage.setItem('userName',this.loginRequest.userName);
+   
+
+  }
 
   
 
